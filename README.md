@@ -1,4 +1,3 @@
-# Exam-blanc
 
 THE WINNER 
 
