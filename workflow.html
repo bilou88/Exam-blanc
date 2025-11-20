@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workflow Git — Feature branches → Merge → PR</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Workflow Git (version simple)</h1>
+
+  <p>
+    Voici un guide court et clair, dans le même style que ta page "Introduction à Git" :
+    phrases courtes, structure simple et exemples de commandes.
+  </p>
+
+  <section>
+    <h2>1. Créer une branche de fonctionnalité</h2>
+    <p>
+      Partir de la branche principale (par ex. <code>main</code>) puis créer une branche dédiée :
+    </p>
+    <pre><code>git checkout -b feature/ma-fonction
+</code></pre>
+    <p>Commiter souvent avec des messages lisibles :</p>
+    <pre><code>git add .
+git commit -m "description claire de ce qui a été fait"
+</code></pre>
+  </section>
+
+  <section>
+    <h2>2. Pousser la branche</h2>
+    <p>
+      Envoyer la branche vers le dépôt distant pour partager le travail ou lancer
+      l'intégration continue :
+    </p>
+    <pre><code>git push -u origin feature/ma-fonction
+</code></pre>
+  </section>
+
+  <section>
+    <h2>3. Ouvrir une Pull Request (PR)</h2>
+    <p>
+      Sur GitHub, ouvre une PR depuis ta branche vers <code>main</code>.
+      Explique l'objectif, liste les changements et indique comment tester.
+    </p>
+  </section>
+
+  <section>
+    <h2>4. Revue et corrections</h2>
+    <p>
+      Les relecteurs laissent des commentaires. Fais les corrections sur ta branche,
+      puis repousse : la PR se mettra à jour automatiquement.
+    </p>
+  </section>
+
+  <section>
+    <h2>5. Merge et nettoyage</h2>
+    <p>
+      Une fois approuvée et passée l'intégration, merge dans <code>main</code>.
+      Supprime ensuite la branche distante.
+    </p>
+    <pre><code>git checkout main
+git pull origin main
+git merge --no-ff feature/ma-fonction
+git push origin main
+# supprimer la branche distante :
+git push origin --delete feature/ma-fonction
+</code></pre>
+  </section>
+
+  <footer>
+    <p class="small">Résumé : créer une branche, travailler, pousser, ouvrir une PR, faire la revue, puis merge.</p>
+  </footer>
+</body>
+</html>
